@@ -33,13 +33,13 @@ public class TooltipTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         Passenger passenger = GetComponent<Passenger>();
         if (passenger != null)
         {
-            text = (passenger.TicketPrice == 200 ? "First Class" : "Second Class") + "\n  Fare: $" + passenger.TicketPrice + "\n  " + (passenger.TicketPrice == 200 ? "Luxury Food" : "Simple Food");
+            text = (passenger.TicketPrice == 100 ? "First Class" : "Second Class") + "\n  Fare: $" + passenger.TicketPrice + "\n  " + (passenger.TicketPrice == 100 ? "Luxury Food" : "Simple Food");
         }
 
         Cargo cargo = GetComponent<Cargo>();
         if (cargo != null)
         {
-            text = "Reward: $" + cargo.Reward;
+            text = "Cargo\n  Reward: $" + cargo.Reward;
         }
     }
 

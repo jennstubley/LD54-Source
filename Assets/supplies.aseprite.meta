@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: supplies
     originalName: 
-    pivot: {x: 1.3695652, y: 0}
+    pivot: {x: 1, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 46
-      height: 14
+      width: 63
+      height: 15
     spriteID: 98d05722921b04a4e80f97973d125769
     spriteBone: []
     spriteOutline: []
@@ -153,8 +153,8 @@ ScriptedImporter:
       cellRect:
         x: 1
         y: 0
-        width: 46
-        height: 14
+        width: 63
+        height: 15
       spriteId: 98d05722921b04a4e80f97973d125769
     linkedCells: []
     parentIndex: -1

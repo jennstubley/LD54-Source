@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6567410572031255041}
   - component: {fileID: 632202631878566950}
-  - component: {fileID: 5325101455412882904}
   - component: {fileID: 6554392158044208860}
   - component: {fileID: 1671907479460795373}
   - component: {fileID: 7427512412107879247}
   - component: {fileID: 1213358401116679628}
+  - component: {fileID: 98320570350268109}
   m_Layer: 0
-  m_Name: meat
+  m_Name: chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1972554977, guid: 8d9c37f0e0cf64043998d09ebab33053, type: 3}
+  m_Sprite: {fileID: -1996696817, guid: 8d9c37f0e0cf64043998d09ebab33053, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,51 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5325101455412882904
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591125434038372479}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.09288907}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7894511, y: 0.81422186}
-  m_EdgeRadius: 0
 --- !u!114 &6554392158044208860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingDragged: 0
+  isFalling: 0
   isValidDropPosition: 0
   dragstartPos: {x: 0, y: 0, z: 0}
 --- !u!50 &1671907479460795373
@@ -189,8 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d04835eeb363b4e922e180dae2a9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodAmount: 2
-  Cost: 50
+  FoodAmount: 1
+  Cost: 35
   FoodType: 1
 --- !u!114 &1213358401116679628
 MonoBehaviour:
@@ -206,6 +162,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: Fresh meat! Yumm!
   offset: {x: 0, y: -1.2, z: 0}
+--- !u!70 &98320570350268109
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591125434038372479}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.026281923, y: 0.008156449}
+  m_Size: {x: 0.89668494, y: 0.9184355}
+  m_Direction: 0
 --- !u!1 &5437425838036981749
 GameObject:
   m_ObjectHideFlags: 0

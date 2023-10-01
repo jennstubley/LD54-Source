@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingDragged: 0
+  isFalling: 0
   isValidDropPosition: 0
   dragstartPos: {x: 0, y: 0, z: 0}
 --- !u!50 &4791480092527249424
@@ -280,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d04835eeb363b4e922e180dae2a9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodAmount: 2
+  FoodAmount: 1
   Cost: 10
   FoodType: 0
 --- !u!114 &9009318022376288634

@@ -5,9 +5,11 @@ using UnityEngine;
 public class Draggable : MonoBehaviour
 {
     public bool beingDragged = false;
+    public bool isFalling = false;
     public bool isValidDropPosition = false;
     public Vector3 dragstartPos = Vector3.zero;
     private Collider2D innerCollider;
+    private Collider2D outerCollider;
     private VoyageController voyageController;
     private Ship ship;
 
@@ -15,6 +17,7 @@ public class Draggable : MonoBehaviour
     void Start()
     {
         innerCollider = transform.Find("Inner").GetComponent<Collider2D>();
+        outerCollider = GetComponent<Collider2D>();
         voyageController = FindObjectOfType<VoyageController>();
         ship = FindObjectOfType<Ship>();
     }
@@ -38,11 +41,36 @@ public class Draggable : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(mousePos.x, mousePos.y, -1);
         }
+        else if (isFalling)
+        {
+            Bounds bounds = outerCollider.bounds;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(new Vector2(bounds.min.x, bounds.min.y - 0.01f), Vector2.down);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider != null && hit.collider.gameObject.name != "Hold 1" && hit.distance < 0.1f)
+                {
+                    isFalling = false;
+                    AudioController.Instance.PlayDrop();
+                }
+            }
+            if (!isFalling) return;
+            hits = Physics2D.RaycastAll(new Vector2(bounds.max.x, bounds.min.y - 0.01f), Vector2.down);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider != null && hit.collider.gameObject.name != "Hold 1" && hit.distance < 0.1f)
+                {
+                    isFalling = false;
+                    AudioController.Instance.PlayDrop();
+                }
+            }
+        }
     }
 
     public void OnMouseDown()
     {
         if (voyageController.IsPaused()) return;
+        AudioController.Instance.PlayPickUp();
+        isFalling = false;
         Debug.LogFormat("Clicked on {0}", name);
 
         /*Supplies supplies = GetComponent<Supplies>();
@@ -67,6 +95,10 @@ public class Draggable : MonoBehaviour
         if (!isValidDropPosition)
         {
             transform.position = dragstartPos;
+        }
+        else
+        {
+            isFalling = true;
         }
     }
 }

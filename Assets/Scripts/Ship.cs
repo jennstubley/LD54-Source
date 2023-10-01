@@ -109,7 +109,7 @@ public class Ship : MonoBehaviour
 
     public int GetPassengerProfit(bool firstClass)
     {
-        return passengers.Where(p => firstClass ? p.TicketPrice == 200 : p.TicketPrice != 200).Sum(p => p.TicketPrice);
+        return passengers.Where(p => firstClass ? p.TicketPrice == 100 : p.TicketPrice != 100).Sum(p => p.TicketPrice);
     }
 
     public void ClearCargo()
